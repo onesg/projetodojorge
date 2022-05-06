@@ -8,3 +8,7 @@ hibernate
 
 ficar array de objetos da classe 1:N
 
+Model
+Repository
+service
+controller
