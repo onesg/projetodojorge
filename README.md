@@ -1,10 +1,10 @@
 <!-- PROJECT NAME -->
-<h1>NOME_DO_PROJETO</h1>
+<h1>API - Médico Paciente 👨‍⚕️💉</h1>
 
 
 <!-- DESCRIPTION -->
 <h3>
-    <i>DESCRICAO_DO_PROJETO</i>
+    <i>API de serviços simples contendo os principais conceitos exercidos em sala de aula.</i>
 </h3>
 
 
@@ -37,6 +37,7 @@ git clone https://github.com/onesg/projetodojorge.git
 ```
 - Abra o projeto com o `IntelliJ IDEA` e verifique se o JDK 11 está configurado corretamente.
 - Dentro da pasta `src\main\resources`, certifique-se que as configurações do arquivo `application.properties` estejam corretas.
+- Baixe todas as dependências necessárias do arquivo `pom.xml`.
 - Abra o arquivo `ProjetodojorgeApplication.java`, use o comando `Ctrl + Shift + F10` para executar o projeto.
 
 
