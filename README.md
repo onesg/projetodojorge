@@ -47,7 +47,18 @@ git clone https://github.com/onesg/projetodojorge.git
 <!-- PROJECT STATUS -->
 <h6>STATUS DO PROJETO</h6>
 
-- [ ] Nada por enquanto...
+- [x] Models;
+- [x] Repositorys;
+- [x] Services;
+- [x] Controllers;
+- [ ] CRUD;
+- [ ] Paginação de resultados;
+- [ ] HATEOAS;
+- [ ] Configuração CORS;
+- [ ] Content Negotiation (JSON, XML e YAML);
+- [ ] Migrations;
+- [ ] Autenticação Spring Security e JWT;
+- [ ] Documentação com Swagger.
 
 
 <!-- HORIZONTAL LINE -->
@@ -57,7 +68,7 @@ git clone https://github.com/onesg/projetodojorge.git
 <!-- BUG's AND FIXES -->
 <h6>BUGS E CORREÇOES</h6>
 <ol>
-    <li>Nada por enquanto...</li>
+    <li>Implementar relação 1:N entre Médico e Paciente.</li>
 </ol>
 
 
@@ -117,13 +128,14 @@ git clone https://github.com/onesg/projetodojorge.git
     CRM    
     especialidade
     telefone
-    fk_id_paciente
+    
     
     Paciente
     id_cliente
     nome
     idade
     telefone
+    fk_id_medico
     
 
 

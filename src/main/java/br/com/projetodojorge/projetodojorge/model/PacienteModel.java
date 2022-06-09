@@ -1,19 +1,33 @@
 package br.com.projetodojorge.projetodojorge.model;
 
-public class Paciente {
+import javax.persistence.*;
+import java.io.Serializable;
+import java.sql.Date;
 
+@Entity
+@Table(name = "paciente")
+public class PacienteModel implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idPaciente;
 
+    @Column(name = "nome_paciente", nullable = false, length = 64)
     private String nomePaciente;
 
-    private String nascimentoPaciente;
+    @Column(name = "nascimento_paciente", nullable = false)
+    private Date nascimentoPaciente;
 
+    @Column(name = "telefone_paciente", nullable = true, length = 11)
     private String telefonePaciente;
 
-    public Paciente() {
+//    @ManyToOne
+//    private MedicoModel medicoModel;
+
+    public PacienteModel() {
     }
 
-    public Paciente(long idPaciente, String nomePaciente, String nascimentoPaciente, String telefonePaciente) {
+    public PacienteModel(long idPaciente, String nomePaciente, Date nascimentoPaciente, String telefonePaciente) {
         this.idPaciente = idPaciente;
         this.nomePaciente = nomePaciente;
         this.nascimentoPaciente = nascimentoPaciente;
@@ -28,7 +42,7 @@ public class Paciente {
         return nomePaciente;
     }
 
-    public String getNascimentoPaciente() {
+    public Date getNascimentoPaciente() {
         return nascimentoPaciente;
     }
 
@@ -44,11 +58,12 @@ public class Paciente {
         this.nomePaciente = nomePaciente;
     }
 
-    public void setNascimentoPaciente(String nascimentoPaciente) {
+    public void setNascimentoPaciente(Date nascimentoPaciente) {
         this.nascimentoPaciente = nascimentoPaciente;
     }
 
     public void setTelefonePaciente(String telefonePaciente) {
         this.telefonePaciente = telefonePaciente;
     }
+
 }
