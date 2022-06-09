@@ -111,4 +111,21 @@ git clone https://github.com/onesg/projetodojorge.git
     País Estados
     Pai/Mãe Filhos
 
+    Médico
+    id_medico
+    nome
+    CRM    
+    especialidade
+    telefone
+    fk_id_paciente
+    
+    Paciente
+    id_cliente
+    nome
+    idade
+    telefone
+    
+
+
+
 -->
