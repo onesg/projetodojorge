@@ -52,7 +52,7 @@ git clone https://github.com/onesg/projetodojorge.git
 - [x] Repositorys;
 - [x] Services;
 - [x] Controllers;
-- [ ] CRUD;
+- [x] CRUD;
 - [ ] Paginação de resultados;
 - [ ] HATEOAS;
 - [ ] Configuração CORS;
