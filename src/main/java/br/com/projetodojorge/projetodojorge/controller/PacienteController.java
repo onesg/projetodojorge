@@ -2,6 +2,7 @@ package br.com.projetodojorge.projetodojorge.controller;
 
 import br.com.projetodojorge.projetodojorge.model.PacienteModel;
 import br.com.projetodojorge.projetodojorge.service.PacienteService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -9,9 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-
 @RequestMapping("/paciente")
-
 public class PacienteController {
 
     @Autowired

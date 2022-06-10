@@ -21,9 +21,6 @@ public class PacienteModel implements Serializable {
     @Column(name = "telefone_paciente", nullable = true, length = 11)
     private String telefonePaciente;
 
-//    @ManyToOne
-//    private MedicoModel medicoModel;
-
     @ManyToOne
     @JoinColumn(name = "medico_id", nullable = false)
     private MedicoModel medicoModel;

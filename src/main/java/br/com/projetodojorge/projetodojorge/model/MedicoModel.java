@@ -2,7 +2,6 @@ package br.com.projetodojorge.projetodojorge.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
 
 @Entity
 @Table(name = "medico")
@@ -23,9 +22,6 @@ public class MedicoModel implements Serializable {
 
     @Column(name = "telefone_medico", nullable = true, length = 11)
     private String telefoneMedico;
-
-//    @OneToMany
-//    private List<PacienteModel> pacienteModels;
 
     public MedicoModel() {
     }
