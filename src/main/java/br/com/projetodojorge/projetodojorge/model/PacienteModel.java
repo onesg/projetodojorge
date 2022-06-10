@@ -24,14 +24,19 @@ public class PacienteModel implements Serializable {
 //    @ManyToOne
 //    private MedicoModel medicoModel;
 
+    @ManyToOne
+    @JoinColumn(name = "medico_id", nullable = false)
+    private MedicoModel medicoModel;
+
     public PacienteModel() {
     }
 
-    public PacienteModel(long idPaciente, String nomePaciente, Date nascimentoPaciente, String telefonePaciente) {
+    public PacienteModel(long idPaciente, String nomePaciente, Date nascimentoPaciente, String telefonePaciente, MedicoModel medicoModel) {
         this.idPaciente = idPaciente;
         this.nomePaciente = nomePaciente;
         this.nascimentoPaciente = nascimentoPaciente;
         this.telefonePaciente = telefonePaciente;
+        this.medicoModel = medicoModel;
     }
 
     public long getIdPaciente() {
@@ -50,6 +55,10 @@ public class PacienteModel implements Serializable {
         return telefonePaciente;
     }
 
+    public MedicoModel getMedicoModel() {
+        return medicoModel;
+    }
+
     public void setIdPaciente(long idPaciente) {
         this.idPaciente = idPaciente;
     }
@@ -64,6 +73,10 @@ public class PacienteModel implements Serializable {
 
     public void setTelefonePaciente(String telefonePaciente) {
         this.telefonePaciente = telefonePaciente;
+    }
+
+    public void setMedicoModel(MedicoModel medicoModel) {
+        this.medicoModel = medicoModel;
     }
 
 }
