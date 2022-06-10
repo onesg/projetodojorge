@@ -1,0 +1,211 @@
+{
+	"info": {
+		"_postman_id": "2debd261-0b30-4c14-8913-b050cdddecdb",
+		"name": "PROJETO JORGE [MÉDICO-PACIENTE]",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "MÉDICO",
+			"item": [
+				{
+					"name": "LIST ID OK",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8081/medico/{ID}"
+					},
+					"response": []
+				},
+				{
+					"name": "LIST ALL OK",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8081/medico/"
+					},
+					"response": []
+				},
+				{
+					"name": "SAVE OK",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nomeMedico\": \"Médico de testes\",\r\n    \"crmMedico\": \"923974719\",\r\n    \"especialidadeMedico\": \"Pneumologia\",\r\n    \"telefoneMedico\": \"6666985251\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8081/medico/"
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE OK",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idMedico\": 11,\r\n    \"nomeMedico\": \"Gabriel Possar\",\r\n    \"crmMedico\": \"923974719\",\r\n    \"especialidadeMedico\": \"Pneumologia\",\r\n    \"telefoneMedico\": \"17996538971\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8081/medico/"
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE OK",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "",
+									"value": "",
+									"type": "default"
+								}
+							]
+						},
+						"url": "http://localhost:8081/medico/{ID}"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PACIENTE",
+			"item": [
+				{
+					"name": "LIST ID OK",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8081/paciente/{ID}"
+					},
+					"response": []
+				},
+				{
+					"name": "LIST ALL OK",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8081/paciente/"
+					},
+					"response": []
+				},
+				{
+					"name": "SAVE OK",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"nomePaciente\":\"Paciente de testes\",\r\n   \"nascimentoPaciente\":\"1997-09-28\",\r\n   \"telefonePaciente\":\"18269505\",\r\n   \"medicoModel\": {\r\n       \"idMedico\": 1\r\n   }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8081/paciente/"
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE OK",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idPaciente\": 2,\r\n    \"nomePaciente\":\"Paciente alterado de novo 2 aaaa\",\r\n    \"nascimentoPaciente\":\"1997-09-28\",\r\n    \"telefonePaciente\":\"18269505\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8081/paciente/"
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE OK",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "",
+									"value": "",
+									"type": "default"
+								}
+							]
+						},
+						"url": "http://localhost:8081/paciente/{ID}"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
