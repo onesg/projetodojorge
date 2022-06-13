@@ -70,6 +70,7 @@ git clone https://github.com/onesg/projetodojorge.git
 <h6>BUGS E CORREÇOES</h6>
 <ol>
     <li>Implementar relação 1:N entre Médico e Paciente.</li>
+    <li>Resolver erro da documentação Swagger</li>
 </ol>
 
 
