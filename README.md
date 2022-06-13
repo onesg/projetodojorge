@@ -57,7 +57,7 @@ git clone https://github.com/onesg/projetodojorge.git
 - [ ] HATEOAS;
 - [ ] Configuração CORS;
 - [ ] Content Negotiation (JSON, XML e YAML);
-- [ ] Migrations;
+- [x] Migrations;
 - [ ] Autenticação Spring Security e JWT;
 - [ ] Documentação com Swagger.
 
@@ -94,6 +94,9 @@ git clone https://github.com/onesg/projetodojorge.git
     <br><br>
     <li>Mockaroo</li>
     https://www.mockaroo.com/
+    <br><br>
+    <li>Download Apache Maven</li>
+    https://maven.apache.org/download.html
     <br><br>
 </ul>
 

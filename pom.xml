@@ -13,9 +13,23 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>projetodojorge</name>
 	<description>Projeto Criação de API da Aula do Jorge</description>
+
+	<!-- Inicio Propriedades -->
 	<properties>
+
+		<!-- Versão Java -->
 		<java.version>11</java.version>
+
+		<!-- Flyway -->
+		<flyway.url>jdbc:mysql://localhost:3306/db_consulta</flyway.url>
+		<flyway.user>root</flyway.user>
+		<flyway.password></flyway.password>
+		<flyway.schemas>db_consulta</flyway.schemas>
+
 	</properties>
+	<!-- Fim Propriedades -->
+
+	<!-- Inicio Dependências -->
 	<dependencies>
 
 		<dependency>
@@ -43,23 +57,34 @@
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
 
+		<!-- Driver de conexão MySQL -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
 
+		<!-- Biblioteca de persistência JAVAX -->
 		<dependency>
 			<groupId>org.apache.aries.jpa.javax.persistence</groupId>
 			<artifactId>javax.persistence_2.1</artifactId>
 			<version>2.7.3</version>
 		</dependency>
 
+		<!-- Biblioteca Spring Data -->
 		<dependency>
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-jpa</artifactId>
 		</dependency>
 
+		<!-- Biblioteca do Flyway -->
+		<dependency>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-maven-plugin</artifactId>
+			<version>8.4.3</version>
+		</dependency>
+
 	</dependencies>
+	<!-- Fim Dependências -->
 
 	<build>
 		<plugins>
