@@ -56,7 +56,7 @@ git clone https://github.com/onesg/projetodojorge.git
 - [ ] Paginação de resultados;
 - [ ] HATEOAS;
 - [ ] Configuração CORS;
-- [ ] Content Negotiation (JSON, XML e YAML);
+- [x] Content Negotiation (JSON, XML e YAML);
 - [x] Migrations;
 - [ ] Autenticação Spring Security e JWT;
 - [ ] Documentação com Swagger.

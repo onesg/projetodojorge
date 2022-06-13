@@ -16,22 +16,29 @@ public class PacienteController {
     @Autowired
     private PacienteService service;
 
-    @GetMapping("/{id}")
+    @GetMapping(
+            value = "/{id}",
+            produces = {"application/json", "application/xml", "application/x-yaml"})
     public PacienteModel findById(@PathVariable("id") long id) throws Exception {
         return service.findById(id);
     }
 
-    @GetMapping
-    public List<PacienteModel> findAll(){
+    @GetMapping(
+            produces = {"application/json", "application/xml", "application/x-yaml"})
+    public List<PacienteModel> findAll() {
         return service.findAll();
     }
 
-    @PostMapping
-    public PacienteModel save(@RequestBody PacienteModel pacienteModel){
+    @PostMapping(
+            produces = {"application/json", "application/xml", "application/x-yaml"},
+            consumes = {"application/json", "application/xml", "application/x-yaml"})
+    public PacienteModel save(@RequestBody PacienteModel pacienteModel) {
         return service.save(pacienteModel);
     }
 
-    @PutMapping
+    @PutMapping(
+            produces = {"application/json", "application/xml", "application/x-yaml"},
+            consumes = {"application/json", "application/xml", "application/x-yaml"})
     public PacienteModel update(@RequestBody PacienteModel pacienteModel) throws Exception {
         return service.update(pacienteModel);
     }

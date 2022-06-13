@@ -16,22 +16,29 @@ public class MedicoController {
     @Autowired
     private MedicoService service;
 
-    @GetMapping("/{id}")
+    @GetMapping(
+            value = "/{id}",
+            produces = {"application/json", "application/xml", "application/x-yaml"})
     public MedicoModel findById(@PathVariable("id") long id) throws Exception {
         return service.findById(id);
     }
 
-    @GetMapping
-    public List<MedicoModel> findAll(){
+    @GetMapping(
+            produces = {"application/json", "application/xml", "application/x-yaml"})
+    public List<MedicoModel> findAll() {
         return service.findAll();
     }
 
-    @PostMapping
-    public MedicoModel save(@RequestBody MedicoModel medicoModel){
+    @PostMapping(
+            produces = {"application/json", "application/xml", "application/x-yaml"},
+            consumes = {"application/json", "application/xml", "application/x-yaml"})
+    public MedicoModel save(@RequestBody MedicoModel medicoModel) {
         return service.save(medicoModel);
     }
 
-    @PutMapping
+    @PutMapping(
+            produces = {"application/json", "application/xml", "application/x-yaml"},
+            consumes = {"application/json", "application/xml", "application/x-yaml"})
     public MedicoModel update(@RequestBody MedicoModel medicoModel) throws Exception {
         return service.update(medicoModel);
     }
