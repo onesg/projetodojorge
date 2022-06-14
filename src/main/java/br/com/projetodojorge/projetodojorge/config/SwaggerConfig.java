@@ -2,7 +2,8 @@ package br.com.projetodojorge.projetodojorge.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.DispatcherServlet;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
@@ -15,46 +16,39 @@ import java.util.Collections;
 
 @Configuration
 @EnableSwagger2
-public class SwaggerConfig {
+public class SwaggerConfig implements WebMvcConfigurer {
+
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("swagger-ui.html")
+                .addResourceLocations("classpath:/META-INF/resources/");
+        registry
+                .addResourceHandler("/webjars/**")
+                .addResourceLocations("classpath:/META-INF/resources/webjars/");
+    }
 
     @Bean
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("br.com.projetodojorge.projetodojorge.controller"))
+                .apis(RequestHandlerSelectors.basePackage("br.com.projetodojorge.projetodojorge"))
                 .paths(PathSelectors.any())
                 .build()
                 .apiInfo(apiInfo());
     }
 
-//    private ApiInfo apiInfo() {
-//        return new ApiInfo(
-//                "Documentation for Spring Crud",
-//                "Swagger Documentation Example",
-//                "V1",
-//                "https://www.jlgregorio.com.br",
-//                new Contact(
-//                        "Jorge Luís Gregório",
-//                        "https://www.jlgregorio.com.br",
-//                        "jorge.gregorio@fatec.sp.gov.br"),
-//                "MIT License",
-//                "https://www.fatecjales.edu.br",
-//                Collections.emptyList()
-//        );
-//    }
-
-    private ApiInfo apiInfo(){
+    private ApiInfo apiInfo() {
         return new ApiInfo(
-                "",
-                "",
-                "",
-                "",
+                "Projeto API Médico-Paciente",
+                "Documentação da API Médico-Paciente com Swagger.",
+                "V1",
+                "https://github.com/onesg/",
                 new Contact(
-                        "",
-                        "",
-                        ""),
-                "",
-                "",
+                        "Gabriel Possar Seno",
+                        "https://github.com/onesg/",
+                        "gabriel.seno@fatec.sp.gov.br"),
+                "MIT License",
+                "https://github.com/onesg/",
                 Collections.emptyList()
         );
     }
