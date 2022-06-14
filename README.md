@@ -59,7 +59,7 @@ git clone https://github.com/onesg/projetodojorge.git
 - [x] Content Negotiation (JSON, XML e YAML);
 - [x] Migrations;
 - [ ] Autenticação Spring Security e JWT;
-- [ ] Documentação com Swagger.
+- [x] Documentação com Swagger.
 
 
 <!-- HORIZONTAL LINE -->
@@ -69,8 +69,8 @@ git clone https://github.com/onesg/projetodojorge.git
 <!-- BUG's AND FIXES -->
 <h6>BUGS E CORREÇOES</h6>
 <ol>
-    <li>Implementar relação 1:N entre Médico e Paciente.</li>
-    <li>Resolver erro da documentação Swagger</li>
+    <li>[CORRIGIDO] Implementar relação 1:N entre Médico e Paciente.</li>
+    <li>[CORRIGIDO] Erro da documentação Swagger</li>
 </ol>
 
 
@@ -142,7 +142,8 @@ git clone https://github.com/onesg/projetodojorge.git
     telefone
     fk_id_medico
     
-
+Links que ajudaram:
+https://stackoverflow.com/questions/43545540/swagger-ui-no-mapping-found-for-http-request
 
 
 -->
