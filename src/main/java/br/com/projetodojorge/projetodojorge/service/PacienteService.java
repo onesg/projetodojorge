@@ -18,11 +18,11 @@ public class PacienteService {
         return repository.findById(id).orElseThrow(() -> new Exception("Paciente não encontrado."));
     }
 
-    public List<PacienteModel> findAll(){
+    public List<PacienteModel> findAll() {
         return repository.findAll();
     }
 
-    public PacienteModel save(PacienteModel pacienteModel){
+    public PacienteModel save(PacienteModel pacienteModel) {
         return repository.save(pacienteModel);
     }
 
