@@ -109,6 +109,12 @@
             <version>2.9.2</version>
         </dependency>
 
+        <!-- Suporte para HATEOS -->
+        <dependency>
+            <groupId>org.springframework.hateoas</groupId>
+            <artifactId>spring-hateoas</artifactId>
+        </dependency>
+
     </dependencies>
     <!-- Fim Dependências -->
 

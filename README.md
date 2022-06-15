@@ -54,7 +54,7 @@ git clone https://github.com/onesg/projetodojorge.git
 - [x] Controllers;
 - [x] CRUD;
 - [ ] Paginação de resultados;
-- [ ] HATEOAS;
+- [x] HATEOAS;
 - [x] Configuração CORS;
 - [x] Content Negotiation (JSON, XML e YAML);
 - [x] Migrations;
@@ -70,7 +70,8 @@ git clone https://github.com/onesg/projetodojorge.git
 <h6>BUGS E CORREÇOES</h6>
 <ol>
     <li>[CORRIGIDO] Implementar relação 1:N entre Médico e Paciente.</li>
-    <li>[CORRIGIDO] Erro da documentação Swagger</li>
+    <li>[CORRIGIDO] Erro da documentação Swagger.</li>
+    <li>[CORRIGIDO] Erro quando usar HATEOS e Swagger juntos.</li>
 </ol>
 
 
@@ -143,7 +144,11 @@ git clone https://github.com/onesg/projetodojorge.git
     fk_id_medico
     
 Links que ajudaram:
+Problemas com o Swagger-ui
 https://stackoverflow.com/questions/43545540/swagger-ui-no-mapping-found-for-http-request
+
+Problemas com o HATEOS e Swagger
+https://stackoverflow.com/questions/58431876/why-hateoas-starts-creating-issue-for-spring-boot-version-2-2-x-during-startu
 
 
 -->

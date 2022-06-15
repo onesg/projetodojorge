@@ -1,11 +1,13 @@
 package br.com.projetodojorge.projetodojorge.model;
 
+import org.springframework.hateoas.RepresentationModel;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
 @Table(name = "medico")
-public class MedicoModel implements Serializable {
+public class MedicoModel extends RepresentationModel implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
