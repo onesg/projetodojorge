@@ -5,9 +5,16 @@ import br.com.projetodojorge.projetodojorge.service.MedicoService;
 
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PagedResourcesAssembler;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.IanaLinkRelations;
+import org.springframework.hateoas.PagedModel;
 import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -39,6 +46,24 @@ public class MedicoController {
         buildCollectionLink(medicoModels);
         return medicoModels;
     }
+
+/* ERRO COM A PAGINAÇÃO */
+//    @ApiOperation(value = "Listar todos os médicos.")
+//    @GetMapping(
+//            produces = {"application/json", "application/xml", "application/x-yaml"})
+//    public ResponseEntity<PagedModel<MedicoModel>> findAll(
+//            @RequestParam(value = "page", defaultValue = "0") int page,
+//            @RequestParam(value = "size", defaultValue = "10") int size,
+//            @RequestParam(value = "direction", defaultValue = "asc") String direction,
+//            PagedResourcesAssembler<MedicoModel> assembler) throws Exception {
+//        var sortDirection = "desc".equalsIgnoreCase(direction) ? Sort.Direction.DESC : Sort.Direction.ASC;
+//        Pageable pageable = PageRequest.of(page, size, Sort.by(sortDirection, "name"));
+//        Page<MedicoModel> medicoModels = service.findAll(pageable);
+//        for (MedicoModel medicoModel : medicoModels){
+//            buildEntityLink(medicoModel);
+//        }
+//        return new ResponseEntity(assembler.toModel(medicoModels), HttpStatus.OK);
+//    }
 
     @ApiOperation(value = "Cadastrar novo médico.")
     @PostMapping(
