@@ -72,6 +72,7 @@ git clone https://github.com/onesg/projetodojorge.git
     <li>[CORRIGIDO] Implementar relação 1:N entre Médico e Paciente.</li>
     <li>[CORRIGIDO] Erro da documentação Swagger.</li>
     <li>[CORRIGIDO] Erro quando usar HATEOS e Swagger juntos.</li>
+    <li>Erro na paginação de resultados com HATEOS.</li>
 </ol>
 
 
