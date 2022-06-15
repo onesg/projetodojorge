@@ -9,61 +9,337 @@
 			"name": "MÉDICO",
 			"item": [
 				{
-					"name": "LIST ID OK",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": "http://localhost:8081/medico/{ID}"
-					},
-					"response": []
+					"name": "XML",
+					"item": [
+						{
+							"name": "LIST ID OK",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/medico/{ID}?mediaType=xml",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"medico",
+										"{ID}"
+									],
+									"query": [
+										{
+											"key": "mediaType",
+											"value": "xml"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "LIST ALL OK",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8081/medico/?mediaType=xml",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"medico",
+										""
+									],
+									"query": [
+										{
+											"key": "mediaType",
+											"value": "xml"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "SAVE OK",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "<medicoModel>\r\n    <nomeMedico>Médico de testes</nomeMedico>\r\n    <crmMedico>123456</crmMedico>\r\n    <especialidadeMedico>Pneumologia</especialidadeMedico>\r\n    <telefoneMedico>77988884444</telefoneMedico>\r\n</medicoModel>\r\n",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								},
+								"url": "http://localhost:8081/medico/"
+							},
+							"response": []
+						},
+						{
+							"name": "UPDATE OK",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "<medicoModel>\r\n    <idMedico>11</idMedico>\r\n    <nomeMedico>Médico de testes ALTERADO</nomeMedico>\r\n    <crmMedico>123456</crmMedico>\r\n    <especialidadeMedico>Pneumologia</especialidadeMedico>\r\n    <telefoneMedico>77988884444</telefoneMedico>\r\n</medicoModel>\r\n",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								},
+								"url": "http://localhost:8081/medico/"
+							},
+							"response": []
+						}
+					]
 				},
 				{
-					"name": "LIST ALL OK",
+					"name": "YAML",
+					"item": [
+						{
+							"name": "LIST ID OK",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/medico/{ID}?mediaType=yaml",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"medico",
+										"{ID}"
+									],
+									"query": [
+										{
+											"key": "mediaType",
+											"value": "yaml"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "LIST ALL OK",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8081/medico/?mediaType=yaml",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"medico",
+										""
+									],
+									"query": [
+										{
+											"key": "mediaType",
+											"value": "yaml"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "SAVE OK",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"content-type": true,
+									"accept": true
+								}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-yaml",
+										"type": "default"
+									},
+									{
+										"key": "Accept",
+										"value": "application/x-yaml",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "---\r\nnomeMedico: Médico de testes\r\ncrmMedico: 123456\r\nespecialidadeMedico: Pneumologia\r\ntelefoneMedico: 77988884444\r\n",
+									"options": {
+										"raw": {
+											"language": "text"
+										}
+									}
+								},
+								"url": "http://localhost:8081/medico/"
+							},
+							"response": []
+						},
+						{
+							"name": "UPDATE OK",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"content-type": true,
+									"accept": true
+								}
+							},
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-yaml",
+										"type": "default"
+									},
+									{
+										"key": "Accept",
+										"value": "application/x-yaml",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "---\r\nidMedico: 11\r\nnomeMedico: Médico de testes ALTERADO\r\ncrmMedico: 123456\r\nespecialidadeMedico: Pneumologia\r\ntelefoneMedico: 77988884444\r\n",
+									"options": {
+										"raw": {
+											"language": "text"
+										}
+									}
+								},
+								"url": "http://localhost:8081/medico/"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "JSON",
+					"item": [
+						{
+							"name": "LIST ID OK",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:8081/medico/{ID}"
+							},
+							"response": []
+						},
+						{
+							"name": "LIST ALL OK",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8081/medico/"
+							},
+							"response": []
+						},
+						{
+							"name": "SAVE OK",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nomeMedico\": \"Médico de testes\",\r\n    \"crmMedico\": \"123456\",\r\n    \"especialidadeMedico\": \"Pneumologia\",\r\n    \"telefoneMedico\": \"77988884444\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8081/medico/"
+							},
+							"response": []
+						},
+						{
+							"name": "UPDATE OK",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"idMedico\": 11,\r\n    \"nomeMedico\": \"Médico de testes ALTERADO\",\r\n    \"crmMedico\": \"123456\",\r\n    \"especialidadeMedico\": \"Pneumologia\",\r\n    \"telefoneMedico\": \"77988884444\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8081/medico/"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "LIST ALL OK (CORS TEST)",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Origin",
+								"value": "(https://www.google.com.br) <<----- TIRAR PARENTESES",
+								"type": "default"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "http://localhost:8081/medico/"
-					},
-					"response": []
-				},
-				{
-					"name": "SAVE OK",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"nomeMedico\": \"Médico de testes\",\r\n    \"crmMedico\": \"923974719\",\r\n    \"especialidadeMedico\": \"Pneumologia\",\r\n    \"telefoneMedico\": \"6666985251\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "http://localhost:8081/medico/"
-					},
-					"response": []
-				},
-				{
-					"name": "UPDATE OK",
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"idMedico\": 11,\r\n    \"nomeMedico\": \"Gabriel Possar\",\r\n    \"crmMedico\": \"923974719\",\r\n    \"especialidadeMedico\": \"Pneumologia\",\r\n    \"telefoneMedico\": \"17996538971\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -110,61 +386,337 @@
 			"name": "PACIENTE",
 			"item": [
 				{
-					"name": "LIST ID OK",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": "http://localhost:8081/paciente/{ID}"
-					},
-					"response": []
+					"name": "XML",
+					"item": [
+						{
+							"name": "LIST ID OK",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/paciente/{ID}?mediaType=xml",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"paciente",
+										"{ID}"
+									],
+									"query": [
+										{
+											"key": "mediaType",
+											"value": "xml"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "LIST ALL OK",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8081/paciente/?mediaType=xml",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"paciente",
+										""
+									],
+									"query": [
+										{
+											"key": "mediaType",
+											"value": "xml"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "SAVE OK",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "<PacienteModel>\r\n    <nomePaciente>Paciente de testes</nomePaciente>\r\n    <nascimentoPaciente>1990-01-01</nascimentoPaciente>\r\n    <telefonePaciente>55922223333</telefonePaciente>\r\n    <medicoModel>\r\n        <idMedico>1</idMedico>\r\n    </medicoModel>\r\n</PacienteModel>\r\n",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								},
+								"url": "http://localhost:8081/paciente/"
+							},
+							"response": []
+						},
+						{
+							"name": "UPDATE OK",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "<PacienteModel>\r\n    <idPaciente>11</idPaciente>\r\n    <nomePaciente>Paciente de testes ALTERADO</nomePaciente>\r\n    <nascimentoPaciente>1990-01-01</nascimentoPaciente>\r\n    <telefonePaciente>55922223333</telefonePaciente>\r\n</PacienteModel>\r\n",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								},
+								"url": "http://localhost:8081/paciente/"
+							},
+							"response": []
+						}
+					]
 				},
 				{
-					"name": "LIST ALL OK",
+					"name": "YAML",
+					"item": [
+						{
+							"name": "LIST ID OK",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8081/paciente/{ID}?mediaType=yaml",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"paciente",
+										"{ID}"
+									],
+									"query": [
+										{
+											"key": "mediaType",
+											"value": "yaml"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "LIST ALL OK",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8081/paciente/?mediaType=yaml",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"paciente",
+										""
+									],
+									"query": [
+										{
+											"key": "mediaType",
+											"value": "yaml"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "SAVE OK",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"content-type": true,
+									"accept": true
+								}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-yaml",
+										"type": "default"
+									},
+									{
+										"key": "Accept",
+										"value": "application/x-yaml",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "---\r\nnomePaciente: Paciente de testes\r\nnascimentoPaciente: 1990-01-01\r\ntelefonePaciente: 55922223333\r\nmedicoModel:\r\n  idMedico: 1\r\n",
+									"options": {
+										"raw": {
+											"language": "text"
+										}
+									}
+								},
+								"url": "http://localhost:8081/paciente/"
+							},
+							"response": []
+						},
+						{
+							"name": "UPDATE OK",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"content-type": true,
+									"accept": true
+								}
+							},
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-yaml",
+										"type": "default"
+									},
+									{
+										"key": "Accept",
+										"value": "application/x-yaml",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "---\r\nidPaciente: 11\r\nnomePaciente: Paciente de testes ALTERADO\r\nnascimentoPaciente: 1990-01-01\r\ntelefonePaciente: 55922223333\r\n",
+									"options": {
+										"raw": {
+											"language": "text"
+										}
+									}
+								},
+								"url": "http://localhost:8081/paciente/"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "JSON",
+					"item": [
+						{
+							"name": "LIST ID OK",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:8081/paciente/{ID}"
+							},
+							"response": []
+						},
+						{
+							"name": "LIST ALL OK",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8081/paciente/"
+							},
+							"response": []
+						},
+						{
+							"name": "SAVE OK",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n   \"nomePaciente\":\"Paciente de testes\",\r\n   \"nascimentoPaciente\":\"1990-01-01\",\r\n   \"telefonePaciente\":\"55922223333\",\r\n   \"medicoModel\": {\r\n       \"idMedico\": 1\r\n   }\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8081/paciente/"
+							},
+							"response": []
+						},
+						{
+							"name": "UPDATE OK",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"idPaciente\": 11,\r\n    \"nomePaciente\":\"Paciente de testes ALTERADO\",\r\n    \"nascimentoPaciente\":\"1990-01-01\",\r\n    \"telefonePaciente\":\"55922223333\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8081/paciente/"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "LIST ALL OK (CORS TEST)",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Origin",
+								"value": "(https://www.google.com.br) <<----- TIRAR PARENTESES",
+								"type": "default"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "http://localhost:8081/paciente/"
-					},
-					"response": []
-				},
-				{
-					"name": "SAVE OK",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n   \"nomePaciente\":\"Paciente de testes\",\r\n   \"nascimentoPaciente\":\"1997-09-28\",\r\n   \"telefonePaciente\":\"18269505\",\r\n   \"medicoModel\": {\r\n       \"idMedico\": 1\r\n   }\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "http://localhost:8081/paciente/"
-					},
-					"response": []
-				},
-				{
-					"name": "UPDATE OK",
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"idPaciente\": 2,\r\n    \"nomePaciente\":\"Paciente alterado de novo 2 aaaa\",\r\n    \"nascimentoPaciente\":\"1997-09-28\",\r\n    \"telefonePaciente\":\"18269505\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
