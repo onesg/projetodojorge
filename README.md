@@ -53,7 +53,7 @@ git clone https://github.com/onesg/projetodojorge.git
 - [x] Services;
 - [x] Controllers;
 - [x] CRUD;
-- [ ] Paginação de resultados;
+- [x] Paginação de resultados;
 - [x] HATEOAS;
 - [x] Configuração CORS;
 - [x] Content Negotiation (JSON, XML e YAML);
@@ -71,8 +71,8 @@ git clone https://github.com/onesg/projetodojorge.git
 <ol>
     <li>[CORRIGIDO] Implementar relação 1:N entre Médico e Paciente.</li>
     <li>[CORRIGIDO] Erro da documentação Swagger.</li>
-    <li>[CORRIGIDO] Erro quando usar HATEOS e Swagger juntos.</li>
-    <li>Erro na paginação de resultados com HATEOS.</li>
+    <li>[CORRIGIDO] Erro ao usar HATEOS e Swagger juntos.</li>
+    <li>[CORRIGIDO] Erro na paginação de resultados com HATEOS.</li>
 </ol>
 
 

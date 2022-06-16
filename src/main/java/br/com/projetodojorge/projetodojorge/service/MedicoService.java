@@ -3,23 +3,22 @@ package br.com.projetodojorge.projetodojorge.service;
 import br.com.projetodojorge.projetodojorge.model.MedicoModel;
 import br.com.projetodojorge.projetodojorge.repository.MedicoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class MedicoService {
 
     @Autowired
-
     private MedicoRepository repository;
 
     public MedicoModel findById(long id) throws Exception {
         return repository.findById(id).orElseThrow(() -> new Exception("Médico não encontrado."));
     }
 
-    public List<MedicoModel> findAll() {
-        return repository.findAll();
+    public Page<MedicoModel> findAll(Pageable pageable) {
+        return repository.findAll(pageable);
     }
 
     public MedicoModel save(MedicoModel medicoModel) {

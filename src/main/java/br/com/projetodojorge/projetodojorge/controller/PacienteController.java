@@ -5,10 +5,15 @@ import br.com.projetodojorge.projetodojorge.service.PacienteService;
 
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.hateoas.CollectionModel;
-import org.springframework.hateoas.IanaLinkRelations;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PagedResourcesAssembler;
 import org.springframework.hateoas.Link;
+import org.springframework.hateoas.PagedModel;
 import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,13 +37,18 @@ public class PacienteController {
     @ApiOperation(value = "Listar todos os pacientes.")
     @GetMapping(
             produces = {"application/json", "application/xml", "application/x-yaml"})
-    public CollectionModel<PacienteModel> findAll() throws Exception {
-        CollectionModel<PacienteModel> pacienteModels = CollectionModel.of(service.findAll());
-        for (final PacienteModel pacienteModel : pacienteModels) {
+    public ResponseEntity<PagedModel<PacienteModel>> findAll(
+            @RequestParam(value = "page", defaultValue = "0") int page,
+            @RequestParam(value = "size", defaultValue = "3") int size,
+            @RequestParam(value = "direction", defaultValue = "asc") String direction,
+            PagedResourcesAssembler<PacienteModel> assembler) throws Exception {
+        var sortDirection = "desc".equalsIgnoreCase(direction) ? Sort.Direction.DESC : Sort.Direction.ASC;
+        Pageable pageable = PageRequest.of(page, size, Sort.by(sortDirection, "idPaciente"));
+        Page<PacienteModel> pacienteModels = service.findAll(pageable);
+        for (PacienteModel pacienteModel : pacienteModels) {
             buildEntityLink(pacienteModel);
         }
-        buildCollectionLink(pacienteModels);
-        return pacienteModels;
+        return new ResponseEntity(assembler.toModel(pacienteModels), HttpStatus.OK);
     }
 
     @ApiOperation(value = "Cadastrar novo paciente.")
@@ -79,16 +89,6 @@ public class PacienteController {
             ).withSelfRel();
             pacienteModel.getMedicoModel().add(medicoLink);
         }
-    }
-
-    private void buildCollectionLink(CollectionModel<PacienteModel> pacienteModels) throws Exception {
-        pacienteModels.add(
-                WebMvcLinkBuilder
-                        .linkTo(WebMvcLinkBuilder
-                                .methodOn(PacienteController.class)
-                                .findAll()
-                        ).withRel(IanaLinkRelations.COLLECTION)
-        );
     }
 
 }

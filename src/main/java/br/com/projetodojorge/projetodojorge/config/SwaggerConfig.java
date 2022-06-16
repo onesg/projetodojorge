@@ -45,14 +45,14 @@ public class SwaggerConfig implements WebMvcConfigurer {
 
     private ApiInfo apiInfo() {
         return new ApiInfo(
-                "Projeto API Médico-Paciente",
+                "Projeto API Médico-Paciente \uD83D\uDC68\u200D⚕️\uD83D\uDC89",
                 "Documentação da API Médico-Paciente com Swagger.",
                 "V1",
-                "https://github.com/onesg/",
+                "",
                 new Contact(
-                        "Gabriel Possar Seno",
-                        "https://github.com/onesg/",
-                        "gabriel.seno@fatec.sp.gov.br"),
+                        "Jheniffer Carolina Pereira",
+                        "https://github.com/jhenifferpereira",
+                        "jheniffer.pereira@fatec.sp.gov.br"),
                 "MIT License",
                 "https://github.com/onesg/",
                 Collections.emptyList()

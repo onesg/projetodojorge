@@ -10,8 +10,6 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PagedResourcesAssembler;
-import org.springframework.hateoas.CollectionModel;
-import org.springframework.hateoas.IanaLinkRelations;
 import org.springframework.hateoas.PagedModel;
 import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 import org.springframework.http.HttpStatus;
@@ -38,32 +36,19 @@ public class MedicoController {
     @ApiOperation(value = "Listar todos os médicos.")
     @GetMapping(
             produces = {"application/json", "application/xml", "application/x-yaml"})
-    public CollectionModel<MedicoModel> findAll() throws Exception {
-        CollectionModel<MedicoModel> medicoModels = CollectionModel.of(service.findAll());
-        for (final MedicoModel medicoModel : medicoModels) {
+    public ResponseEntity<PagedModel<MedicoModel>> findAll(
+            @RequestParam(value = "page", defaultValue = "0") int page,
+            @RequestParam(value = "size", defaultValue = "3") int size,
+            @RequestParam(value = "direction", defaultValue = "asc") String direction,
+            PagedResourcesAssembler<MedicoModel> assembler) throws Exception {
+        var sortDirection = "desc".equalsIgnoreCase(direction) ? Sort.Direction.DESC : Sort.Direction.ASC;
+        Pageable pageable = PageRequest.of(page, size, Sort.by(sortDirection, "idMedico"));
+        Page<MedicoModel> medicoModels = service.findAll(pageable);
+        for (MedicoModel medicoModel : medicoModels) {
             buildEntityLink(medicoModel);
         }
-        buildCollectionLink(medicoModels);
-        return medicoModels;
+        return new ResponseEntity(assembler.toModel(medicoModels), HttpStatus.OK);
     }
-
-/* ERRO COM A PAGINAÇÃO */
-//    @ApiOperation(value = "Listar todos os médicos.")
-//    @GetMapping(
-//            produces = {"application/json", "application/xml", "application/x-yaml"})
-//    public ResponseEntity<PagedModel<MedicoModel>> findAll(
-//            @RequestParam(value = "page", defaultValue = "0") int page,
-//            @RequestParam(value = "size", defaultValue = "10") int size,
-//            @RequestParam(value = "direction", defaultValue = "asc") String direction,
-//            PagedResourcesAssembler<MedicoModel> assembler) throws Exception {
-//        var sortDirection = "desc".equalsIgnoreCase(direction) ? Sort.Direction.DESC : Sort.Direction.ASC;
-//        Pageable pageable = PageRequest.of(page, size, Sort.by(sortDirection, "name"));
-//        Page<MedicoModel> medicoModels = service.findAll(pageable);
-//        for (MedicoModel medicoModel : medicoModels){
-//            buildEntityLink(medicoModel);
-//        }
-//        return new ResponseEntity(assembler.toModel(medicoModels), HttpStatus.OK);
-//    }
 
     @ApiOperation(value = "Cadastrar novo médico.")
     @PostMapping(
@@ -96,16 +81,13 @@ public class MedicoController {
                                 .findById(medicoModel.getIdMedico())
                         ).withSelfRel()
         );
-    }
-
-    private void buildCollectionLink(CollectionModel<MedicoModel> medicoModels) throws Exception {
-        medicoModels.add(
-                WebMvcLinkBuilder
-                        .linkTo(WebMvcLinkBuilder
-                                .methodOn(MedicoController.class)
-                                .findAll()
-                        ).withRel(IanaLinkRelations.COLLECTION)
-        );
+//        medicoModel.add(
+//                WebMvcLinkBuilder
+//                        .linkTo(WebMvcLinkBuilder
+//                                .methodOn(MedicoController.class)
+//                                .delete(medicoModel.getIdMedico())
+//                        ).withRel("delete")
+//        );
     }
 
 }
